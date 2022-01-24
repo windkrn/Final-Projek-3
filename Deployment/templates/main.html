@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <title>H8 Model Deployment</title>
+</head>
+<body>
+    <div class="form">
+        <form action="{{url_for('predict')}}" method="post">
+        <img src="{{url_for('static',filename ='src/hacktiv-logo.png')}}" width ="180px" height="100px" alt="">
+        <h1>Heart Failure Prediction</h1>
+        <input type="text" name="age" placeholder="age" required="required" />
+        <select name="anaemia" required="required">
+            <option selected disabled>anaemia</option>
+            <option value="1">no</option>
+            <option value="2">yes</option>
+        </select>  
+        <select name="diabetes" required="required">
+            <option selected disabled>diabetes</option>
+            <option value="1">no</option>
+            <option value="2">yes</option>
+        </select> 
+        <input type="text" name="creatinine_phosphokinase" placeholder="creatinine_phosphokinase" required="required" />
+        <input type="text" name="ejection_fraction" placeholder="ejection_fraction" required="required" />
+        <select name="high_blood_pressure" required="required">
+            <option selected disabled>high_blood_pressure</option>
+            <option value="1">no</option>
+            <option value="2">yes</option>
+        </select> 
+        <input type="text" name="platelets" placeholder="platelets" required="required" /> 
+        <input type="text" name="serum_creatinine" placeholder="serum_creatinine" required="required" />
+        <input type="text" name="serum_sodium" placeholder="serum_sodium" required="required" />
+        <select name="sex" required="required">
+            <option selected disabled>sex</option>
+            <option value="1">female</option>
+            <option value="2">male</option>
+        </select> 
+        <select name="smoking" required="required">
+            <option selected disabled>smoking</option>
+            <option value="1">no</option>
+            <option value="2">yes</option>
+        </select>  
+        <input type="text" name="time" placeholder="time" required="required" />
+        
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        <p class="message">{{ prediction_text }}</p>
+        </form>
+
+    </div>
+
+</body>
+</html>
